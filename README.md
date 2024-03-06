@@ -13,5 +13,3 @@ It is built by [Next.js](https://nextjs.org/), and is full responsive.
 
 ![Home Page](./docs//images/home_page.png)
 ![Search Page](./docs//images/search_page.png)
-![Mobile Home Page](./docs//images/home_page_mobile.png)
-![Mobile Search Page](./docs//images/search_page_mobile.png)
