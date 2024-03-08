@@ -3,7 +3,7 @@ import htmlParser from "html-react-parser"
 import { useState } from "react"
 import { SiteCard } from "@/components/site-card"
 import { HNSearchComment } from "@/lib/types"
-import { cn, ycombinatorItem, ycombinatorUser } from "@/lib/utils"
+import { cn, ycombinatorItem } from "@/lib/utils"
 import { TitleLink } from "@/components/links"
 import { Separator } from "@/components/ui/separator"
 import { HNTime } from "@/components/hn/hn-time"
@@ -50,9 +50,7 @@ export function CommentCard({
       <Separator />
       <div className="flex items-center justify-between">
         <HNTime ux={created_at_i} />
-        <TitleLink target="_blank" href={ycombinatorUser(author)} className="font-medium">
-          @{author}
-        </TitleLink>
+        <span className="w-fit text-sm">@{author}</span>
       </div>
     </SiteCard>
   )

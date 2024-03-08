@@ -18,10 +18,6 @@ export function ycombinatorItem(id: number) {
   return `https://news.ycombinator.com/item?id=${id}`
 }
 
-export function ycombinatorUser(id: string) {
-  return `https://news.ycombinator.com/user?id=${id}`
-}
-
 export function utcLocal(ux: number) {
   const val = ux.toString().length === 10 ? ux * 1000 : ux
   return dayjs.utc(val).local().format("MMM DD, YYYY HH:mm")
