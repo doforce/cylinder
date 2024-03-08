@@ -16,7 +16,7 @@ export function HNCard({
   className?: string
   indexFrom?: number
 }) {
-  const { host, href: hostHref } = getHNbase(item.url)
+  const { host } = getHNbase(item.url)
   return (
     <SiteCard className={className}>
       <HNLeft index={indexFrom + index + 1} item={item} />
@@ -27,13 +27,7 @@ export function HNCard({
           href={item.url ? item.url : ycombinatorItem(item.id)}>
           {item.title}
         </TitleLink>
-        <TitleLink
-          target="_blank"
-          className="text-sm font-normal"
-          href={hostHref}
-          aria-label="The hostname where this article is from">
-          {host}
-        </TitleLink>
+        <span className="w-fit text-sm">{host}</span>
         <div className="flex w-full items-center justify-between gap-1">
           <HNTime ux={item.time} />
           <TitleLink target="_blank" href={ycombinatorUser(item.by)} className="font-medium">
