@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react"
 import "@fontsource-variable/inter"
 import "@/styles/globals.css"
 import type { Metadata } from "next"
@@ -37,6 +38,7 @@ export default function IndexLayout({ children }: { children: ReactNode }) {
             <Footer className="mt-2" />
           </main>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
