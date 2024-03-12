@@ -1,9 +1,9 @@
 import { getHNbase, ycombinatorItem } from "@/lib/utils"
-import { HNTime } from "./hn-time"
 import { HNLeft } from "./hn-icons"
 import { SiteCard } from "@/components/site-card"
 import type { HNItem } from "@/lib/types"
 import { TitleLink } from "../links"
+import { ItemFooter } from "../item-footer"
 
 export function HNCard({
   index,
@@ -28,10 +28,7 @@ export function HNCard({
           {item.title}
         </TitleLink>
         <span className="w-fit text-sm">{host}</span>
-        <div className="flex w-full items-center justify-between gap-1">
-          <HNTime ux={item.time} />
-          <span className="w-fit text-sm">{`@${item.by}`}</span>
-        </div>
+        <ItemFooter time={item.time} author={item.by} />
       </div>
     </SiteCard>
   )

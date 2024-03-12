@@ -1,7 +1,7 @@
 "use client"
 
 import { useCallback, useMemo, useState } from "react"
-import { ChevronsLeftIcon, ChevronRightIcon, ChevronLeftIcon } from "lucide-react"
+import { ChevronRightIcon, ChevronLeftIcon } from "lucide-react"
 import { PageBtn } from "@/components/page-btn"
 import {
   Select,
@@ -39,7 +39,11 @@ export function Pagination({ className, nbPages }: { className?: string; nbPages
     state.setPage(p)
   }, [])
   return (
-    <div className={cn("flex w-full items-center justify-center gap-4", className)}>
+    <div
+      className={cn(
+        "flex w-full flex-col items-center justify-center gap-3 md:flex-row",
+        className,
+      )}>
       <div className="flex gap-1.5">
         <PageBtn onClick={() => goto(state.page - 1)} disable={state.page == 0} className="mr-1">
           <ChevronLeftIcon className="size-4" />

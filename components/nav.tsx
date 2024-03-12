@@ -19,7 +19,7 @@ export function NavLinks({ className }: { className?: string; onClickMenu?: () =
   }
 
   return (
-    <div className={cn("flex flex-wrap gap-1 px-2 text-sm md:gap-2", className)}>
+    <div className={cn("flex flex-wrap gap-1 text-sm md:gap-2", className)}>
       {[...hnMenu, "search"].map(item => (
         <HoverLink
           key={item}

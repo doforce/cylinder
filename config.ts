@@ -67,8 +67,8 @@ export default {
     { key: "search_by_date", label: "By date" },
   ],
   hnSupportTags: [
-    { key: "story", label: "Stories" },
     { key: "comment", label: "Comments" },
+    { key: "story", label: "Stories" },
     { key: "poll", label: "Polls" },
     { key: "pollopt", label: "Pollopts" },
     { key: "show_hn", label: "Show" },

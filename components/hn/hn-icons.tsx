@@ -10,15 +10,15 @@ export function HNLeft({
   index: number
 }) {
   return (
-    <div className="flex items-center">
+    <a
+      href={ycombinatorItem(id)}
+      target="_blank"
+      className="flex items-center gap-1 transition-transform hover:rotate-6">
       <span className="px-1 font-semibold">{index}</span>
-      <a
-        href={ycombinatorItem(id)}
-        target="_blank"
-        className="flex flex-col items-center justify-center gap-1 transition-transform hover:rotate-6">
+      <div className="flex flex-col gap-0.5">
         {score !== undefined && (
-          <span className="flex items-center justify-center gap-0.5 px-2">
-            <TrendingUpIcon className="size-5" />
+          <span className="flex items-center justify-center gap-0.5">
+            <TrendingUpIcon className="size-4" />
             {score}
           </span>
         )}
@@ -32,7 +32,7 @@ export function HNLeft({
             {descendants}
           </span>
         )}
-      </a>
-    </div>
+      </div>
+    </a>
   )
 }

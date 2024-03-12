@@ -27,14 +27,14 @@ export async function generateMetadata() {
 export default function IndexLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body className="max-w-full">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main className="flex min-h-screen flex-col">
+          <main className="flex min-h-screen flex-col gap-2">
             <Header />
             <div className="flex flex-1 flex-col items-center px-2 py-2 md:px-12 md:py-6">
               {children}
             </div>
-            <Footer className="mt-2" />
+            <Footer />
           </main>
         </ThemeProvider>
       </body>

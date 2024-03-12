@@ -6,8 +6,8 @@ import { HNSearchComment } from "@/lib/types"
 import { cn, ycombinatorItem } from "@/lib/utils"
 import { TitleLink } from "@/components/links"
 import { Separator } from "@/components/ui/separator"
-import { HNTime } from "@/components/hn/hn-time"
 import { ChevronDownIcon } from "lucide-react"
+import { ItemFooter } from "@/components/item-footer"
 
 export function CommentCard({
   className,
@@ -48,10 +48,7 @@ export function CommentCard({
         {htmlParser(comment_text)}
       </article>
       <Separator />
-      <div className="flex items-center justify-between">
-        <HNTime ux={created_at_i} />
-        <span className="w-fit text-sm">@{author}</span>
-      </div>
+      <ItemFooter time={created_at_i} author={author} />
     </SiteCard>
   )
 }
