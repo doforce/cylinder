@@ -53,6 +53,7 @@ export default function SearchPage() {
           <SearchIcon className="size-4" />
         </span>
         <Input
+          autoFocus
           className="indent-5"
           placeholder="Type some text to search..."
           value={searchText}
