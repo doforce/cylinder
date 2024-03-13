@@ -18,5 +18,5 @@ export function generateMetadata(): Metadata {
 }
 
 export default function SearchLayout({ children }: { children: ReactNode }) {
-  return <div className="flex h-full w-full flex-col items-center gap-2">{children}</div>
+  return <div className="flex h-full max-w-2xl flex-col items-center gap-2">{children}</div>
 }

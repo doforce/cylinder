@@ -25,12 +25,12 @@ export async function HNServer({ tab, num }: { tab: string; num: string }) {
     <div className="flex w-full flex-col items-center">
       <ItemGrid>
         {ids.map((id, index) => (
-          <Suspense fallback={<HNCardFallback className="max-w-lg" key={`fb-${id}`} />}>
+          <Suspense fallback={<HNCardFallback className="max-w-2xl" key={`fb-${id}`} />}>
             <HNFetchCard indexFrom={indexFrom} id={id} index={index} key={id} />
           </Suspense>
         ))}
       </ItemGrid>
-      <HNFooter className="max-w-lg md:max-w-4xl" tab={tab} total={total} page={page} />
+      <HNFooter className="max-w-2xl" tab={tab} total={total} page={page} />
     </div>
   ) : (
     <NoData className="mt-4" />

@@ -48,7 +48,7 @@ export default function SearchPage() {
 
   return (
     <>
-      <div className="relative w-full max-w-xl">
+      <div className="relative w-full">
         <span className="absolute inset-y-0 start-0 grid place-content-center pl-3">
           <SearchIcon className="size-4" />
         </span>
@@ -95,7 +95,6 @@ export default function SearchPage() {
                 story_id={id}
                 created_at_i={time}
                 story_url={story_url}
-                className="max-w-lg"
                 query={query}
                 key={`${index}_${id}`}
                 author={by}
@@ -104,7 +103,6 @@ export default function SearchPage() {
               />
             ) : (
               <HNCard
-                className="max-w-lg"
                 index={index}
                 key={id}
                 indexFrom={data.hitsPerPage * data.page}
@@ -114,7 +112,7 @@ export default function SearchPage() {
         )}
       </ItemGrid>
       {data?.hits && data.hits.length > 0 ? (
-        <Pagination nbPages={data.nbPages} className="my-2 max-w-lg" />
+        <Pagination nbPages={data.nbPages} className="my-2" />
       ) : !isLoading && searchText && !searching ? (
         <NoData className="mt-4" />
       ) : (

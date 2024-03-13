@@ -41,6 +41,7 @@ export async function fetchSearch(q: QueryStore) {
     tags: tags === "all" ? undefined : tags,
     query,
     numericFilters: numericFilters.length > 0 ? numericFilters.join(",") : undefined,
+    hitsPerPage: config.hnPageSize,
   }
   const qs = Object.entries(params)
     .filter(([_, val]) => val !== undefined)

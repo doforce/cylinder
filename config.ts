@@ -59,7 +59,7 @@ export default {
     { key: "-10", label: "10 year ago", unit: "year" },
   ],
 
-  hnPageSize: 20,
+  hnPageSize: 30,
   hnBase: "https://hacker-news.firebaseio.com/v0/",
   hnSearchBase: "https://hn.algolia.com/api/v1",
   hnSort: [

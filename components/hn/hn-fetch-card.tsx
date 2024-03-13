@@ -12,5 +12,5 @@ export async function HNFetchCard({
 }) {
   const item = await fetchStory(id)
   if (!item) return <></>
-  return <HNCard className="max-w-lg" index={index} indexFrom={indexFrom} item={item} />
+  return <HNCard index={index} indexFrom={indexFrom} item={item} />
 }

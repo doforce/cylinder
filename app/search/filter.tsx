@@ -13,7 +13,7 @@ import { DatePick } from "@/components/date-pick"
 export function HNFilter() {
   const state = useQuery()
   return (
-    <div className="flex flex-wrap gap-1">
+    <div className="flex w-full flex-wrap gap-1">
       <Select value={state.sort} onValueChange={v => state.setSort(v)}>
         <SelectTrigger className="w-32 hover:bg-accent hover:text-accent-foreground md:h-9">
           <SelectValue placeholder="Select a sort" />
