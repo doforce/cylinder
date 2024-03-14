@@ -1,6 +1,6 @@
-import config from "@/config"
-import "@fontsource-variable/inter"
 import { Metadata } from "next"
+import config from "@/config"
+import { Toaster } from "@/components/ui/sonner"
 import type { ReactNode } from "react"
 
 const { textName, site } = config
@@ -18,5 +18,10 @@ export function generateMetadata(): Metadata {
 }
 
 export default function SearchLayout({ children }: { children: ReactNode }) {
-  return <div className="flex h-full max-w-2xl flex-col items-center gap-2">{children}</div>
+  return (
+    <div className="flex h-full max-w-2xl flex-col items-center gap-2">
+      {children}
+      <Toaster />
+    </div>
+  )
 }

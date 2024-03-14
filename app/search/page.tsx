@@ -3,20 +3,26 @@
 import "@/styles/search.css"
 import useSWR from "swr"
 import { useDebounce } from "react-use"
-import { useState } from "react"
-import { RotateCcwIcon, XIcon, SearchIcon } from "lucide-react"
+import { useEffect, useState } from "react"
+import { RotateCcwIcon, XIcon, SearchIcon, CheckSquareIcon, XSquareIcon } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { HNCard } from "@/components/hn/hn-card"
 import { Pagination } from "./pagination"
 import { HNFilter } from "./filter"
 import { fetchSearch } from "@/lib/hn"
-import { useQuery } from "./store"
+import { useCustomPreset, usePresetKey, useQuery } from "./store"
 import { CommentCard } from "./comment-card"
 import { ItemGrid } from "@/components/item-grid"
 import { NoData } from "@/components/no-data"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { toast } from "sonner"
+
+const tooltipDuration = 500
 
 export default function SearchPage() {
   const search = useQuery()
+  const usePreset = usePresetKey()
+  const useCustom = useCustomPreset()
   const [searchText, setSearchText] = useState("")
   const [searching, setSearching] = useState(false)
 
@@ -25,9 +31,13 @@ export default function SearchPage() {
       search.setQuery(searchText)
       setSearching(true)
     },
-    300,
+    200,
     [searchText],
   )
+
+  useEffect(() => {
+    setSearchText(usePreset.value!)
+  }, [usePreset.value])
 
   const { data, isLoading } = useSWR(search, async p => {
     if (!p.query) return null
@@ -40,6 +50,16 @@ export default function SearchPage() {
 
   const onClear = () => {
     setSearchText("")
+  }
+
+  const onAddPreset = () => {
+    useCustom.unshift(searchText)
+    toast.success(`Added ${searchText}`, { position: "top-left" })
+  }
+
+  const onRemovePreset = () => {
+    useCustom.del(searchText)
+    toast.success(`Removed ${searchText}`, { position: "top-left" })
   }
 
   const onInputChange = (value: string) => {
@@ -60,11 +80,53 @@ export default function SearchPage() {
           onChange={e => onInputChange(e.target.value)}
         />
         {search.query && (
-          <span
-            onClick={onClear}
-            className="absolute inset-y-0 end-0 grid cursor-pointer place-content-center px-3 transition-transform hover:rotate-12">
-            <XIcon className="size-4" />
-          </span>
+          <>
+            {!useCustom.list.includes(searchText) ? (
+              <TooltipProvider delayDuration={tooltipDuration}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span
+                      onClick={onAddPreset}
+                      className="absolute right-8 top-1/2 -translate-y-1/2 cursor-pointer px-3 transition-all md:right-10">
+                      <CheckSquareIcon className="size-4" />
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Add to Preset</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            ) : (
+              <TooltipProvider delayDuration={tooltipDuration}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <span
+                      onClick={onRemovePreset}
+                      className="absolute right-8 top-1/2 -translate-y-1/2 cursor-pointer px-3 transition-all md:right-10">
+                      <XSquareIcon className="size-4" />
+                    </span>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Remove from Preset</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            )}
+            <TooltipProvider delayDuration={tooltipDuration}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <span
+                    onClick={onClear}
+                    className="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer px-3">
+                    <XIcon className="size-4" />
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Clear Text</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </>
         )}
       </div>
       <HNFilter />

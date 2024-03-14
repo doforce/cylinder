@@ -7,11 +7,16 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import config from "@/config"
-import { useQuery } from "./store"
+import { useCustomPreset, usePresetKey, useQuery } from "./store"
 import { DatePick } from "@/components/date-pick"
 
 export function HNFilter() {
   const state = useQuery()
+  const usePreset = usePresetKey()
+  const useCustom = useCustomPreset()
+
+  const PRESET_KEYS = (process.env.NEXT_PUBLIC_SEARCH_PRESET || "").split(",").filter(Boolean)
+
   return (
     <div className="flex w-full flex-wrap gap-1">
       <Select value={state.sort} onValueChange={v => state.setSort(v)}>
@@ -44,6 +49,23 @@ export function HNFilter() {
       <DatePick className="w-40" setDate={state.setTo} date={state.to}>
         To date
       </DatePick>
+      <Select value={usePreset.value} onValueChange={v => usePreset.setValue(v)}>
+        <SelectTrigger className="w-32 hover:bg-accent hover:text-accent-foreground md:h-9">
+          <SelectValue placeholder="Preset key" />
+        </SelectTrigger>
+        <SelectContent>
+          {useCustom.list.map(s => (
+            <SelectItem value={s} key={s}>
+              {s}
+            </SelectItem>
+          ))}
+          {PRESET_KEYS.map(s => (
+            <SelectItem value={s} key={s}>
+              {s}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
     </div>
   )
 }
