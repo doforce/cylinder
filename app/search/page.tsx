@@ -1,6 +1,5 @@
 "use client"
 
-import "@/styles/search.css"
 import useSWR from "swr"
 import { useDebounce } from "react-use"
 import { useEffect, useState } from "react"
