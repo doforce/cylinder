@@ -52,7 +52,7 @@ export interface HNSearchResult {
   serverTimeMS: number
 }
 
-export interface HNSearchHit extends HNSearchComment {
+export interface HNSearchHit extends HNSearchComment, HighlightResult {
   _tags: Array<string>
   author: string
   created_at_i: number
@@ -62,6 +62,21 @@ export interface HNSearchHit extends HNSearchComment {
   title: string
   url: string
   query: string
+}
+
+export interface HighlightResult {
+  _highlightResult: {
+    author: SearchMatch
+    comment_text: SearchMatch
+    story_title: SearchMatch
+    story_url: SearchMatch
+  }
+}
+
+export interface SearchMatch {
+  matchLevel: string
+  matchedWords: string[]
+  value: string
 }
 
 export interface HNSearchComment {

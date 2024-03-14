@@ -133,43 +133,17 @@ export default function SearchPage() {
         <RotateCcwIcon className="my-2 size-5 animate-spin md:size-6" />
       )}
       <ItemGrid>
-        {data?.hits.map(
-          (
-            {
-              story_id: id,
-              url,
-              author: by,
-              created_at_i: time,
-              num_comments: descendants,
-              points: score,
-              title,
-              _tags,
-              story_title,
-              comment_text,
-              query,
-              story_url,
-            },
-            index,
-          ) =>
-            _tags.includes("comment") ? (
-              <CommentCard
-                story_id={id}
-                created_at_i={time}
-                story_url={story_url}
-                query={query}
-                key={`${index}_${id}`}
-                author={by}
-                comment_text={comment_text}
-                story_title={story_title}
-              />
-            ) : (
-              <HNCard
-                index={index}
-                key={id}
-                indexFrom={data.hitsPerPage * data.page}
-                item={{ id, url, by, time, title, type: _tags[0] as any, descendants, score }}
-              />
-            ),
+        {data?.hits.map((item, index) =>
+          item._tags.includes("comment") ? (
+            <CommentCard {...item} key={`${index}_${item.story_id}`} />
+          ) : (
+            <HNCard
+              index={index}
+              key={item.story_id}
+              indexFrom={data.hitsPerPage * data.page}
+              item={item}
+            />
+          ),
         )}
       </ItemGrid>
       {data?.hits && data.hits.length > 0 ? (
