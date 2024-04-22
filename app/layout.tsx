@@ -31,7 +31,7 @@ export default function IndexLayout({ children }: { children: ReactNode }) {
         <script
           defer
           src="https://stats.doforce.xyz/script.js"
-          data-website-id="016c8b4c-846d-4f8e-bd42-d2fe22c94389"></script>
+          data-website-id="22d2bdb8-efdf-44db-9f4f-2109f0833d68"></script>
       </head>
       <body className="max-w-full">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
