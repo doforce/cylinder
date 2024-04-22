@@ -27,6 +27,12 @@ export async function generateMetadata() {
 export default function IndexLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          defer
+          src="https://stats.doforce.xyz/script.js"
+          data-website-id="016c8b4c-846d-4f8e-bd42-d2fe22c94389"></script>
+      </head>
       <body className="max-w-full">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <main className="flex min-h-screen flex-col gap-2">
