@@ -7,6 +7,7 @@ import { HNFooter } from "@/components/hn/hn-footer"
 import { HNFetchCard } from "@/components/hn/hn-fetch-card"
 import { ItemGrid } from "../item-grid"
 import { NoData } from "../no-data"
+import BackTop from "../back-top"
 
 export async function HNServer({ tab, num }: { tab: string; num: string }) {
   if (!config.hnMenu.includes(tab)) {
@@ -31,6 +32,7 @@ export async function HNServer({ tab, num }: { tab: string; num: string }) {
         ))}
       </ItemGrid>
       <HNFooter className="max-w-2xl" tab={tab} total={total} page={page} />
+      <BackTop />
     </div>
   ) : (
     <NoData className="mt-4" />
