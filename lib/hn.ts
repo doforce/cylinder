@@ -3,13 +3,9 @@ import type { HNItem, HNSearchResult } from "./types"
 import { QueryStore } from "@/app/search/store"
 import { toTimestamp } from "./utils"
 
-export async function request<T>(
-  url: string,
-  fn: string,
-  init?: RequestInit,
-): Promise<T | undefined> {
+export async function request<T>(url: string, fn: string): Promise<T | undefined> {
   try {
-    const resp = await fetch(url, init)
+    const resp = await fetch(url, { cache: "no-store" })
     if (!resp.ok) {
       return
     }
@@ -22,7 +18,7 @@ export async function request<T>(
 
 export async function fetchStories(tab: string) {
   const url = `${config.hnBase}${tab}.json`
-  return await request<number[]>(url, "fetchStories", { next: { revalidate: 60 } })
+  return await request<number[]>(url, "fetchStories")
 }
 
 export async function fetchStory(id: number) {
