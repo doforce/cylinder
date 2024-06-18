@@ -13,7 +13,6 @@
     "start": "next start",
     "pre": "next build && next start",
     "fmt": "prettier --write \"./**/*.(js|ts|json|mjs|tsx|jsx)\"",
-    "uu": "bun run scripts/upui.ts",
     "clean": "rm -rf node_modules && rm -rf .next"
   },
   "dependencies": {
