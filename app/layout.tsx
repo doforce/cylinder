@@ -31,7 +31,7 @@ export default function IndexLayout({ children }: { children: ReactNode }) {
         {process.env.NODE_ENV === "production" && (
           <script
             defer
-            src="https://stats.doforce.xyz/script.js"
+            src="https://stats.doforce.us.kg/script.js"
             data-website-id="22d2bdb8-efdf-44db-9f4f-2109f0833d68"></script>
         )}
       </head>
