@@ -16,25 +16,12 @@
     "clean": "rm -rf node_modules && rm -rf .next"
   },
   "dependencies": {
-    "@radix-ui/react-popover": "^1.1.1",
-    "@radix-ui/react-select": "^2.1.1",
-    "@radix-ui/react-separator": "^1.1.0",
-    "@radix-ui/react-slot": "^1.1.0",
-    "@radix-ui/react-tooltip": "^1.1.2",
-    "@tailwindcss/typography": "^0.5.14",
     "date-fns": "^3.6.0",
     "dayjs": "^1.11.12",
-    "framer-motion": "^11.3.28",
-    "html-react-parser": "^5.1.12",
     "next": "14.2.5",
-    "next-themes": "^0.3.0",
     "react": "^18",
-    "react-day-picker": "8.10.1",
-    "react-dom": "^18",
-    "react-use": "^17.5.1",
-    "sonner": "^1.5.0",
-    "swr": "^2.2.5",
-    "zustand": "^4.5.5"
+    "zustand": "^4.5.5",
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@fontsource-variable/inter": "^5.0.20",
@@ -53,6 +40,19 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss": "^3.4.10",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "@radix-ui/react-popover": "^1.1.1",
+    "@radix-ui/react-select": "^2.1.1",
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-tooltip": "^1.1.2",
+    "@tailwindcss/typography": "^0.5.14",
+    "framer-motion": "^11.3.28",
+    "html-react-parser": "^5.1.12",
+    "next-themes": "^0.3.0",
+    "react-day-picker": "8.10.1",
+    "react-use": "^17.5.1",
+    "swr": "^2.2.5",
+    "sonner": "^1.5.0"
   }
 }
