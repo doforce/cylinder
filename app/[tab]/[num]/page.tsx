@@ -5,13 +5,14 @@ import { HNServer } from "@/components/hn/hn-server"
 const { textName, site } = config
 
 interface Props {
-  params: {
+  params: Promise<{
     tab: string
     num: string
-  }
+  }>
 }
 
-export function generateMetadata({ params }: Props): Metadata {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params;
   return {
     title:
       params.tab.replace("stories", "").replace(/^[a-z]/, match => match.toUpperCase()) +
@@ -21,9 +22,16 @@ export function generateMetadata({ params }: Props): Metadata {
       siteName: textName,
       url: `${site}/${params.tab}/${params.num}`,
     },
-  }
+  };
 }
 
-export default function StoriesPage({ params: { tab, num } }: Props) {
+export default async function StoriesPage(props: Props) {
+  const params = await props.params;
+
+  const {
+    tab,
+    num
+  } = params;
+
   return <HNServer tab={tab} num={num} />
 }

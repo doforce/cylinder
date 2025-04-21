@@ -1,7 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
 import { ChevronUpIcon } from "lucide-react"
-import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 export default function BackTop() {
@@ -12,18 +11,16 @@ export default function BackTop() {
   useEffect(() => {
     window.addEventListener("scroll", onScroll)
   }, [])
+  const onClick = () => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    })
+  }
   return (
-    <motion.div
-      onClick={() =>
-        window.scroll({
-          top: 0,
-          left: 0,
-          behavior: "smooth",
-        })
-      }
-      transition={{ duration: 0.3, ease: "linear" }}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
+    <span
+      onClick={onClick}
       className={cn(
         showTop ? "" : "hidden",
         "fixed bottom-0 right-0 z-50 mb-4 mr-4 cursor-pointer rounded-md p-3",
@@ -31,6 +28,6 @@ export default function BackTop() {
         "bg-primary text-primary-foreground",
       )}>
       <ChevronUpIcon className="size-4" />
-    </motion.div>
+    </span>
   )
 }

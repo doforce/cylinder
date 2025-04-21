@@ -10,6 +10,3 @@ It's a website where you can visit and search all [Hacker News](https://news.yco
 ```
 
 It is built by [Next.js](https://nextjs.org/), and is full responsive.
-
-![Home Page](./docs//images/home_page.png)
-![Search Page](./docs//images/search_page.png)
