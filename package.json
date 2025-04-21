@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": {
     "name": "doforce",
-    "url": "https://cylinder.doforce.us.kg"
+    "url": "https://cylinder.doforce.dpdns.org"
   },
   "scripts": {
     "dev": "next dev --turbopack",
