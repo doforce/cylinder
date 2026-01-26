@@ -1,4 +1,3 @@
-import "@fontsource-variable/inter"
 import "@/styles/globals.css"
 import type { Metadata } from "next"
 import config from "@/config"
@@ -6,6 +5,10 @@ import { ThemeProvider } from "@/components/theme-provider"
 import type { ReactNode } from "react"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
+import { Inter } from "next/font/google"
+import Script from "next/script"
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
 const {
   meta: { title, description, keywords },
@@ -29,13 +32,14 @@ export default function IndexLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         {process.env.NODE_ENV === "production" && (
-          <script
-            defer
+          <Script
             src="https://stats.doforce.dpdns.org/script.js"
-            data-website-id="22d2bdb8-efdf-44db-9f4f-2109f0833d68"></script>
+            data-website-id="22d2bdb8-efdf-44db-9f4f-2109f0833d68"
+            strategy="afterInteractive"
+          />
         )}
       </head>
-      <body className="max-w-full">
+      <body className={`max-w-full ${inter.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <main className="flex min-h-screen flex-col gap-2">
             <Header />

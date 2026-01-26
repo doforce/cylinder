@@ -5,7 +5,7 @@ import { toTimestamp } from "./utils"
 
 export async function request<T>(url: string, fn: string): Promise<T | undefined> {
   try {
-    const resp = await fetch(url, { cache: "no-store" })
+    const resp = await fetch(url, { next: { revalidate: 60 } })
     if (!resp.ok) {
       return
     }

@@ -35,7 +35,7 @@ export default function SearchPage() {
   )
 
   useEffect(() => {
-    setSearchText(usePreset.value!)
+    setSearchText(usePreset.value ?? "")
   }, [usePreset.value])
 
   const { data, isLoading } = useSWR(search, async p => {
