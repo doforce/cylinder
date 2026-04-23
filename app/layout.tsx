@@ -29,7 +29,7 @@ export async function generateMetadata() {
 
 export default function IndexLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {process.env.NODE_ENV === "production" && (
           <Script
