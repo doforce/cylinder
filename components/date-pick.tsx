@@ -32,7 +32,7 @@ export function DatePick({
           </div>
           {date && (
             <span onClick={() => setDate(undefined)} className="cursor-pointer rounded p-1">
-              <XIcon className="size-3 transition-transform hover:rotate-12 hover:text-accent-foreground" />
+              <XIcon className="hover:text-accent-foreground size-3 transition-transform hover:rotate-12" />
             </span>
           )}
         </Button>
@@ -50,7 +50,7 @@ export function DatePick({
             ))}
           </SelectContent>
         </Select>
-        <Calendar mode="single" selected={date} onSelect={setDate} initialFocus />
+        <Calendar mode="single" selected={date} onSelect={setDate} autoFocus />
       </PopoverContent>
     </Popover>
   )
