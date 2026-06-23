@@ -1,7 +1,7 @@
 import config from "@/config"
 import type { HNItem, HNSearchResult } from "./types"
 import { QueryStore } from "@/app/search/store"
-import { toTimestamp } from "./utils"
+import { endOfDayTimestamp, toTimestamp } from "./utils"
 
 export async function request<T>(url: string, fn: string): Promise<T | undefined> {
   try {
@@ -30,7 +30,7 @@ export async function fetchSearch(q: QueryStore) {
   const { from, to, query, tags, page, sort } = q
   const numericFilters = [
     from ? `created_at_i>=${toTimestamp(from)}` : undefined,
-    to ? `created_at_i<${toTimestamp(to)}` : undefined,
+    to ? `created_at_i<${endOfDayTimestamp(to)}` : undefined,
   ].filter(Boolean)
   const params = {
     page,

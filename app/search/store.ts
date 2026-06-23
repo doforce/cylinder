@@ -53,8 +53,7 @@ export const useQuery = create<QueryStore & QueryStoreAction>(set => ({
     if (!s) {
       set(state => ({ ...state, to: undefined }))
     } else {
-      // include the end date
-      set(state => ({ ...state, to: dayjs(s).add(1, "day").toDate() }))
+      set(state => ({ ...state, to: s }))
     }
     useQuery.setState({ page: 0 })
   },

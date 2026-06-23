@@ -27,6 +27,10 @@ export function toTimestamp(date: Date | string) {
   return dayjs(date).toDate().getTime() / 1000
 }
 
+export function endOfDayTimestamp(date: Date | string) {
+  return toTimestamp(dayjs(date).add(1, "day").toDate())
+}
+
 export function displayDate(date: Date) {
   // Jan 20,2022
   return dayjs(date).format("MMM DD, YYYY")
