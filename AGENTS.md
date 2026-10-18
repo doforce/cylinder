@@ -30,6 +30,7 @@ There is no test script, and `components/ui/calendar.test.tsx` is not wired to a
 - Reuse the stack already in `package.json` (Next 16 App Router, React 19, Tailwind v4, zustand, SWR, radix). Ask before adding a dependency.
 - Fetch through `lib/hn.ts` only. `request()` returns `undefined` on failure, so pages answer a missing payload with `notFound()` or `NoData` instead of throwing.
 - Server Components by default; reach for `"use client"` when a component needs state, effects or event handlers.
+- Bump `package.json` `version` in every commit that changes behaviour: patch for a fix or an internal refactor, minor for a new user-visible feature, major for a breaking change. A commit touching only docs, comments or formatting leaves the version alone. The header and footer render that number, so a stale one is user-visible.
 - Run `bun run fmt` before you finish.
 
 ## Recipes

@@ -1,4 +1,5 @@
 import config from "@/config"
+import { version } from "@/package.json"
 import { cn } from "@/lib/utils"
 import { HoverLink } from "./links"
 
@@ -30,6 +31,7 @@ export function Socials({ className, hiddenText }: { className?: string; hiddenT
         </svg>
         <span className={cn("text-sm font-normal", hiddenText ? "hidden" : "")}>{bmac.label}</span>
       </HoverLink>
+      <span className="text-foreground/60 text-xs">v{version}</span>
     </div>
   )
 }
