@@ -33,13 +33,13 @@ export function CommentCard({
       <TitleLink target="_blank" href={story_url ? story_url : ycURL}>
         {story_title}
       </TitleLink>
-      <article className="prose w-full overflow-x-hidden leading-snug dark:prose-invert">
+      <article className="prose dark:prose-invert w-full overflow-x-hidden leading-snug">
         {htmlParser(comment)}
       </article>
       <Link
         href={ycURL}
         target="_blank"
-        className="inline-flex w-fit items-center gap-1 rounded-sm px-2 py-0.5 text-sm font-medium text-primary/80 transition hover:bg-accent hover:text-primary">
+        className="text-primary/80 hover:bg-accent hover:text-primary inline-flex w-fit items-center gap-1 rounded-sm px-2 py-0.5 text-sm font-medium transition">
         Discuss <MoveRightIcon className="size-4" />
       </Link>
       <ItemFooter time={created_at_i} author={author} />

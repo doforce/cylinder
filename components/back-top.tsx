@@ -23,8 +23,8 @@ export default function BackTop() {
       onClick={onClick}
       className={cn(
         showTop ? "" : "hidden",
-        "fixed bottom-0 right-0 z-50 mb-4 mr-4 cursor-pointer rounded-md p-3",
-        "sm:mb-6 sm:mr-8 md:mr-16 lg:mr-32",
+        "fixed right-0 bottom-0 z-50 mr-4 mb-4 cursor-pointer rounded-md p-3",
+        "sm:mr-8 sm:mb-6 md:mr-16 lg:mr-32",
         "bg-primary text-primary-foreground",
       )}>
       <ChevronUpIcon className="size-4" />

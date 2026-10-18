@@ -24,7 +24,7 @@ export function HNLeft({
         )}
 
         {num_comments !== undefined && points !== undefined && (
-          <span className="h-[1px] w-10 bg-primary" />
+          <span className="bg-primary h-[1px] w-10" />
         )}
         {num_comments !== undefined && (
           <span className="flex items-center justify-center gap-0.5">

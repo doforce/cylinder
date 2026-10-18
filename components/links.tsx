@@ -10,7 +10,7 @@ export function TitleLink({ children, className, ...props }: Props) {
     <Link
       {...props}
       className={cn(
-        "inline-flex gap-1 font-semibold decoration-primary decoration-2 underline-offset-4 transition duration-300 hover:underline",
+        "decoration-primary inline-flex gap-1 font-semibold decoration-2 underline-offset-4 transition duration-300 hover:underline",
         className,
       )}>
       {children}
@@ -23,7 +23,7 @@ export function BtnLink({ children, className, ...props }: Props) {
     <Link
       {...props}
       className={cn(
-        "flex w-full items-center bg-primary text-primary-foreground hover:bg-primary/80",
+        "bg-primary text-primary-foreground hover:bg-primary/80 flex w-full items-center",
         "justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition duration-300",
         className,
       )}>
@@ -37,7 +37,7 @@ export function HoverLink({ children, className, ...props }: Props) {
     <Link
       {...props}
       className={cn(
-        "inline-flex w-fit gap-1 rounded-lg p-1 text-sm font-medium transition duration-300 hover:bg-accent hover:text-accent-foreground",
+        "hover:bg-accent hover:text-accent-foreground inline-flex w-fit gap-1 rounded-lg p-1 text-sm font-medium transition duration-300",
         className,
       )}>
       {children}

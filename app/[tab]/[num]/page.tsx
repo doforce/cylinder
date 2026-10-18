@@ -12,7 +12,7 @@ interface Props {
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
-  const params = await props.params;
+  const params = await props.params
   return {
     title:
       params.tab.replace("stories", "").replace(/^[a-z]/, match => match.toUpperCase()) +
@@ -22,16 +22,13 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       siteName: textName,
       url: `${site}/${params.tab}/${params.num}`,
     },
-  };
+  }
 }
 
 export default async function StoriesPage(props: Props) {
-  const params = await props.params;
+  const params = await props.params
 
-  const {
-    tab,
-    num
-  } = params;
+  const { tab, num } = params
 
   return <HNServer tab={tab} num={num} />
 }

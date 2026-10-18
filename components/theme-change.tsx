@@ -20,7 +20,7 @@ function Button({
       {...props}
       onClick={onClick}
       suppressHydrationWarning
-      className={cn("rounded-lg p-1 hover:bg-accent hover:text-accent-foreground", className)}>
+      className={cn("hover:bg-accent hover:text-accent-foreground rounded-lg p-1", className)}>
       {children}
     </button>
   )

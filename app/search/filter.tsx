@@ -20,7 +20,7 @@ export function HNFilter() {
   return (
     <div className="flex w-full flex-wrap gap-1">
       <Select value={state.sort} onValueChange={v => state.setSort(v)}>
-        <SelectTrigger className="w-32 hover:bg-accent hover:text-accent-foreground md:h-9">
+        <SelectTrigger className="hover:bg-accent hover:text-accent-foreground w-32 md:h-9">
           <SelectValue placeholder="Select a sort" />
         </SelectTrigger>
         <SelectContent>
@@ -32,7 +32,7 @@ export function HNFilter() {
         </SelectContent>
       </Select>
       <Select value={state.tags} onValueChange={v => state.setTag(v)}>
-        <SelectTrigger className="w-32 hover:bg-accent hover:text-accent-foreground md:h-9">
+        <SelectTrigger className="hover:bg-accent hover:text-accent-foreground w-32 md:h-9">
           <SelectValue placeholder="Sored by" />
         </SelectTrigger>
         <SelectContent>
@@ -50,7 +50,7 @@ export function HNFilter() {
         To date
       </DatePick>
       <Select value={usePreset.value} onValueChange={v => usePreset.setValue(v)}>
-        <SelectTrigger className="w-32 hover:bg-accent hover:text-accent-foreground md:h-9">
+        <SelectTrigger className="hover:bg-accent hover:text-accent-foreground w-32 md:h-9">
           <SelectValue placeholder="Preset key" />
         </SelectTrigger>
         <SelectContent>

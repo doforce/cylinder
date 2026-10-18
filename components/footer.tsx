@@ -17,7 +17,7 @@ function Items({
   return (
     <div className={cn("flex flex-col gap-1", className)}>
       <span className="text-center font-medium">{title}</span>
-      <div className="flex flex-col gap-1.5 text-foreground/85">{children}</div>
+      <div className="text-foreground/85 flex flex-col gap-1.5">{children}</div>
     </div>
   )
 }
@@ -25,7 +25,7 @@ function Items({
 export function Footer({ className }: { className?: string }) {
   const { relevant, resources } = config
   return (
-    <div className={cn("flex flex-wrap justify-center gap-3 pb-2 pt-4 md:gap-6", className)}>
+    <div className={cn("flex flex-wrap justify-center gap-3 pt-4 pb-2 md:gap-6", className)}>
       <Items title="Resource">
         {resources.map(({ label, url }) => (
           <HoverLink key={label} href={url} target="_blank" className="font-normal">

@@ -5,7 +5,7 @@ export function SiteCard({ className, children }: { className?: string; children
   return (
     <div
       className={cn(
-        "flex w-full gap-1 rounded-lg border bg-card p-2 text-card-foreground md:p-3",
+        "bg-card text-card-foreground flex w-full gap-1 rounded-lg border p-2 md:p-3",
         "shadow-md transition hover:shadow-xl",
         className,
       )}>

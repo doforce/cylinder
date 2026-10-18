@@ -86,7 +86,7 @@ export default function SearchPage() {
                   <TooltipTrigger asChild>
                     <span
                       onClick={onAddPreset}
-                      className="absolute right-8 top-1/2 -translate-y-1/2 cursor-pointer px-3 transition-all md:right-10">
+                      className="absolute top-1/2 right-8 -translate-y-1/2 cursor-pointer px-3 transition-all md:right-10">
                       <CheckSquareIcon className="size-4" />
                     </span>
                   </TooltipTrigger>
@@ -101,7 +101,7 @@ export default function SearchPage() {
                   <TooltipTrigger asChild>
                     <span
                       onClick={onRemovePreset}
-                      className="absolute right-8 top-1/2 -translate-y-1/2 cursor-pointer px-3 transition-all md:right-10">
+                      className="absolute top-1/2 right-8 -translate-y-1/2 cursor-pointer px-3 transition-all md:right-10">
                       <XSquareIcon className="size-4" />
                     </span>
                   </TooltipTrigger>
@@ -116,7 +116,7 @@ export default function SearchPage() {
                 <TooltipTrigger asChild>
                   <span
                     onClick={onClear}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer px-3">
+                    className="absolute top-1/2 right-0 -translate-y-1/2 cursor-pointer px-3">
                     <XIcon className="size-4" />
                   </span>
                 </TooltipTrigger>
