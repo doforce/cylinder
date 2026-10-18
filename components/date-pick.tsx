@@ -43,8 +43,8 @@ export function DatePick({
             <SelectValue placeholder="Select Preset" />
           </SelectTrigger>
           <SelectContent position="popper">
-            {config.datePresets.map(({ key, label, unit }) => (
-              <SelectItem key={`${unit}_${key}`} value={`${key}_${unit}`}>
+            {config.datePresets.map(({ count, label, unit }) => (
+              <SelectItem key={`${count}_${unit}`} value={`${count}_${unit}`}>
                 {label}
               </SelectItem>
             ))}

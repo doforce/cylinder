@@ -1,5 +1,5 @@
 import { clsx, type ClassValue } from "clsx"
-import dayjs from "dayjs"
+import dayjs, { type ManipulateType } from "dayjs"
 import utc from "dayjs/plugin/utc"
 import { twMerge } from "tailwind-merge"
 
@@ -37,8 +37,8 @@ export function displayDate(date: Date) {
 }
 
 export function dateAdd2utc(valueUnit: string, convertStart?: boolean) {
-  const [value, unit] = valueUnit.split("_")
-  const diff = dayjs().add(Number.parseInt(value), unit as any)
+  const [count, unit] = valueUnit.split("_")
+  const diff = dayjs().subtract(Number.parseInt(count), unit as ManipulateType)
   if (convertStart) return diff.startOf("day").utc().toDate()
   return diff.utc().toDate()
 }
