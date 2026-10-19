@@ -36,6 +36,12 @@ export default {
 
   hnMenu,
 
+  copy: {
+    label: "Copy the link",
+    success: "Copied the link",
+    error: "Copy failed, copy it manually",
+  },
+
   resources: [
     { label: "Hacker News API", url: "https://github.com/HackerNews/API" },
     { label: "Hacker News Search API", url: "https://hn.algolia.com/api" },

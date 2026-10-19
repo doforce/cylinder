@@ -4,7 +4,7 @@ import htmlParser from "html-react-parser"
 import { MoveRightIcon } from "lucide-react"
 import { SiteCard } from "@/components/site-card"
 import { HNSearchHit } from "@/lib/types"
-import { cn, ycombinatorItem } from "@/lib/utils"
+import { cn, itemURL } from "@/lib/utils"
 import { TitleLink } from "@/components/links"
 import { ItemFooter } from "@/components/item-footer"
 import Link from "next/link"
@@ -25,12 +25,12 @@ export function CommentCard({
       comment_text: { value: match_value },
     },
   } = item
-  const ycURL = ycombinatorItem(story_id)
+  const ycURL = itemURL({ url: story_url, story_id })
   let comment = match_value.replace(new RegExp("<em>", "g"), `<em class="text-primary">`)
 
   return (
     <SiteCard className={cn("flex-col gap-2", className)}>
-      <TitleLink target="_blank" href={story_url ? story_url : ycURL}>
+      <TitleLink target="_blank" href={ycURL}>
         {story_title}
       </TitleLink>
       <article className="prose dark:prose-invert w-full overflow-x-hidden leading-snug">

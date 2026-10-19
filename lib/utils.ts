@@ -18,6 +18,10 @@ export function ycombinatorItem(id: number) {
   return `https://news.ycombinator.com/item?id=${id}`
 }
 
+export function itemURL({ url, story_id }: { url?: string; story_id: number }) {
+  return url ? url : ycombinatorItem(story_id)
+}
+
 export function utcLocal(ux: number) {
   const val = ux.toString().length === 10 ? ux * 1000 : ux
   return dayjs.utc(val).local().format("MMM DD, YYYY HH:mm")

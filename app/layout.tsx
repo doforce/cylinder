@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { Inter } from "next/font/google"
 import Script from "next/script"
+import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
@@ -47,6 +48,7 @@ export default function IndexLayout({ children }: { children: ReactNode }) {
               {children}
             </div>
             <Footer />
+            <Toaster />
           </main>
         </ThemeProvider>
       </body>
